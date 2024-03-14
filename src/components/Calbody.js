@@ -46,10 +46,10 @@ const Calbody = () => {
     for(let i = 1; i <= daysInMonth; i++){
         if(i === today && month === currentMonth && year === currentYear){
             // Adds today class if day is today
-            calendarDatesHtml += `<td class="today"><a href="">${i}</a></td>`
+            calendarDatesHtml += `<td class="today"><a class="swap">${i}</a></td>`
         } else {
             // otherwise just adds reg td tag
-            calendarDatesHtml += `<td><a href="">${i}</a></td>`
+            calendarDatesHtml += `<td><a class="swap">${i}</a></td>`
         }
         // Start new row every 7 days
         if((firstDayOfMonth + i) % 7 === 1){
