@@ -11,7 +11,7 @@ const Calbody = () => {
   const calendarDatesEl = document.querySelector('#calendarDates')
   
   // Holds HTML of calendar cells
-  let calendarDatesHtml;
+  let calendarDates = []
 
 
   // Function to update displayed cal
@@ -36,27 +36,27 @@ const Calbody = () => {
 
     // Handle adding blank days
     for(let i = 1; i < firstDayOfMonth; i++){
-        calendarDatesHtml += <td class="empty"></td>
+        calendarDates.push(<td class="empty"></td>)
     }
 
     // Fill current month days
     for(let i = 1; i <= daysInMonth; i++){
         if(i === today && month === currentMonth && year === currentYear){
             // Adds today class if day is today
-            calendarDatesHtml += <td class="today"><a class="swap">{i}</a></td>
+            calendarDates.push(<td class="today"><a class="swap">{i}</a></td>)
         } else {
             // otherwise just adds reg td tag
-            calendarDatesHtml += <td><a class="swap">{i}</a></td>
+            calendarDates.push(<td><a class="swap">{i}</a></td>)
         }
         // Start new row every 7 days
         if((firstDayOfMonth + i) % 7 === 1){
-            calendarDatesHtml += <tr></tr>
+            calendarDates.push(<tr></tr>)
         }
     }
     
     // calendarDatesEl.innerHTML = calendarDatesHtml
     // console.log(calendarDatesHtml)
-    return calendarDatesHtml
+    return calendarDates
     
     }
 
